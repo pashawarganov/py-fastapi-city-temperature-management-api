@@ -6,8 +6,8 @@ from city import models, schemas
 
 async def get_all_cities(db: AsyncSession):
     query = select(models.City)
-    notes_list = await db.execute(query)
-    return [note[0] for note in notes_list.fetchall()]
+    cities_list = await db.execute(query)
+    return [city[0] for city in cities_list.fetchall()]
 
 
 async def create_city(db: AsyncSession, city: schemas.CityCreate):
